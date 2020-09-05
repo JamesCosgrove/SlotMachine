@@ -59,7 +59,6 @@ struct NumberView: View {
         )
         .mask(
             Rectangle()
-                .fill(Color.green)
                 .frame(width: 30, height: 36, alignment: .center)
         )
     }
@@ -79,6 +78,13 @@ struct NumberListView: View {
         }
     }
 }
+
+struct NumberListView_Previews: PreviewProvider {
+    static var previews: some View {
+        NumberListView().previewLayout(.sizeThatFits)
+    }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
