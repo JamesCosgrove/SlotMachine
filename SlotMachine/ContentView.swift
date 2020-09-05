@@ -28,8 +28,6 @@ struct SlotMachineView: View {
     var body: some View {
         VStack {
             HStack {
-                ForEach((String(score).compactMap{ $0.wholeNumberValue }), id: \.self) { digit in
-                }
                 NumberView(number: digits[0])
                 NumberView(number: digits[1])
                 NumberView(number: digits[2])
@@ -37,17 +35,12 @@ struct SlotMachineView: View {
                 NumberView(number: digits[4])
                 NumberView(number: digits[5])
             }
-            
             Button(action: {
-                //withAnimation(.easeInOut(duration: 2)) {
                 score = Int.random(in: 0...999)
-                //}
-
             }, label: {
                 Text("New Number: \(score)")
             })
         }
-
     }
 }
 
@@ -58,20 +51,16 @@ struct NumberView: View {
             NumberListView(number: number)
                 .offset(x: 0, y: CGFloat(135 - (30 * number)))
                 .animation(.easeInOut(duration: 2))
-                
         }
         .overlay(
             Rectangle()
                 .stroke(Color.gray, lineWidth: 3)
                 .frame(width: 28, height: 34, alignment: .center)
-                //.fill(Color.clear)
-                
         )
         .mask(
             Rectangle()
                 .fill(Color.green)
                 .frame(width: 30, height: 36, alignment: .center)
-                
         )
     }
 }
